@@ -1,0 +1,436 @@
+{% extends "apps/layouts/base.html" %}
+
+{% block title %}Admission Enquiry{% endblock %}
+
+{% block content %}
+<div class="body flex-grow-1 px-3">
+  <div class="container-lg">
+    <div class="card box">
+      <div class="card-header box-header">
+        <h3 class="box-title"><i class="fa fa-search"></i> Select Criteria</h3>
+        <p>{{ success_message }}</p>
+      </div>
+      <div class="card-body box-body">
+        <form role="form" action="admin/enquiry" method="post" class="">
+          <div class="row">
+            <input type="hidden" name="ci_csrf_token" value="">
+            <div class="col-sm-6 col-md-2 col-lg-2">
+              <div class="form-group">
+                <label>Class</label>
+                <select id="class" name="class" class="form-control" autocomplete="off">
+                  <option value="">Select</option>
+                  <option value="1">Class 1</option>
+                  <option value="2">Class 2</option>
+                  <option value="3">Class 3</option>
+                  <option value="4">Class 4</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-2 col-lg-2">
+              <div class="form-group">
+                <label>Source</label>
+                <select id="source" name="source" class="form-control" autocomplete="off">
+                  <option value="">Select</option>
+                  <option value="Advertisement">Advertisement</option>
+                  <option value="Online Front Site">Online Front Site</option>
+                  <option value="Google Ads">Google Ads</option>
+                  <option value="Admission Campaign">Admission Campaign</option>
+                  <option value="Front Office">Front Office</option>
+                </select>
+                <span class="text-danger"></span>
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-2 col-lg-2">
+              <div class="form-group">
+                <label>Enquiry From Date<small class="req"> *</small></label>
+                <input type="text" autocomplete="off" name="from_date" class="form-control  date" value="">
+                <span class="text-danger"></span>
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-2 col-lg-2">
+              <div class="form-group">
+                <label>Enquiry To Date<small class="req"> *</small></label>
+                <input type="text" autocomplete="off" name="to_date" class="form-control  date" value="">
+                <span class="text-danger"></span>
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-2 col-lg-2">
+              <div class="form-group">
+                <label>Status</label>
+                <select id="status" name="status" class="form-control">
+                  <option value="">Select</option>
+                  <option value="all">All</option>
+                  <option selected="" value="active">Active</option>
+                  <option value="passive">Passive</option>
+                  <option value="dead">Dead</option>
+                  <option value="won">Won</option>
+                  <option value="lost">Lost</option>
+                </select>
+                <span class="text-danger"></span>
+              </div>
+            </div>
+            <div class="col-sm-3 col-md-2 col-lg-2">
+              <div class="form-group pt-2">
+                <label class="d-block">&nbsp;</label>
+                <button type="submit" name="search" value="search_filter"
+                  class="btn btn-secondary btn-sm pull-right d-block"><i class="fa fa-search"></i>
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card box">
+      <div class="card-header box-header">
+        <div class="d-flex justify-content-between">
+          <h3 class="box-title">Admission Enquiry</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-sm btn-secondary px-3" data-coreui-toggle="modal"
+              data-coreui-target="#enquiryModal"><i class="fa fa-plus"></i> Add Admission</button>
+          </div>
+        </div>
+      </div>
+      <div class="box-body">
+        <!--        <div class="download_label">Admission Enquiry List</div>-->
+        <div class="mailbox-messages">
+          <div class="table-responsive">
+            <!-- table-hover table-striped table-bordered table table-sm table-bordered table-hover-->
+            <table class="table table-sm table-striped tbox" id="enquirytable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Source</th>
+                  <th>Enquiry Date</th>
+                  <th>Last Follow Up Date</th>
+                  <th>Next Follow Up Date</th>
+                  <th>Status</th>
+                  <th class="text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for enquiry in enquiry_list %}
+                <tr>
+                  <td class="tbox-name">{{ enquiry.name }}</td>
+                  <td class="tbox-name">{{ enquiry.contact }}</td>
+                  <td class="tbox-name">{{ enquiry.source }}</td>
+                  <td class="tbox-name">{{ enquiry.created_at | date:"M d, Y" }}</td>
+                  <td class="tbox-name">{{ enquiry.follow_up_date | date:"M d, Y" }}</td>
+                  <td class="tbox-name">{{ enquiry.date | date:"M d, Y" }}</td>
+                  <td class="tbox-name">{{ enquiry.status }}</td>
+                  <td class="tbox-actions text-right">
+                    <a class="btn btn-default btn-xs" data-target="#follow_up" data-toggle="modal" title="">
+                      <i class="fa fa-phone"></i>
+                    </a>
+                    <a class="btn btn-default btn-xs" data-target="#enquiryModaledit" data-toggle="modal" title=""><i
+                        class="fa fa-pencil"></i>
+                    </a>
+                    <a data-placement="left" href="#" class="btn btn-default btn-xs" data-toggle="tooltip" title=""
+                      data-original-title="">
+                      <i class="fa fa-remove"></i>
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div class="modal animate__animated animate__fadeIn" id="enquiryModal" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content modal-media-content">
+      <div class="modal-header modal-media-header">
+        <h5 class="modal-title">Admission Enquiry</h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <form action="" method="POST" enctype="multipart/form-data" id="formadd" class="form-box">
+              {% csrf_token %}
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="form-box">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label for="id_name_add">
+                              Name
+                            </label><small class="req"> *</small>
+                            {{ form.name_add }}
+                            <span id="name_add_error" class="text-danger">
+                              {{ form.username.errors }}
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label for="id_contact">
+                              Phone
+                            </label><small class="req"> *</small>
+                            {{ form.contact }}
+                            <span id="contact_error" class="text-danger">
+                              {{ form.contact.errors }}
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label for="id_email">
+                              Email
+                            </label>
+                            {{ form.email }}
+                            <span id="email_error" class="text-danger">
+                              {{ form.email.errors }}
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label for="id_address">
+                              Address
+                            </label>
+                            {{ form.address }}
+                            <span id="address_error" class="text-danger">
+                              {{ form.address.errors }}
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label for="id_description">
+                              Description
+                            </label>
+                            {{ form.description }}
+                            <span id="description_error" class="text-danger">
+                              {{ form.description.errors }}
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label for="id_note">
+                              Note
+                            </label>
+                            {{ form.note }}
+                            <span id="note_error" class="text-danger">
+                              {{ form.note.errors }}
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label for="id_date">
+                              Date
+                            </label>
+                            {{ form.date }}
+                            <span id="date_error" class="text-danger">
+                              {{ form.date.errors }}
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label for="id_follow_up_date">
+                              Next Follow Up Date
+                            </label>
+                            {{ form.follow_up_date }}
+                            <span id="follow_up_date_error" class="text-danger">
+                              {{ form.follow_up_date.errors }}
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-group">
+                            <label>
+                              Assigned
+                            </label>
+                            {{ form.assigned }}
+                            <span id="assigned_error" class="text-danger">
+                              {{ form.assigned.errors }}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <label for="id_reference">
+                              Reference
+                            </label>
+                            {{ form.reference }}
+                            <span id="reference_error" class="text-danger">
+                              {{ form.reference.errors }}
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <label for="id_source">
+                              Source
+                            </label> <small class="req"> *</small>
+                            {{ form.source }}
+                            <span id="source_error" class="text-danger">
+                              {{ form.source.errors }}
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <label for="id_current_class">
+                              Class
+                            </label>
+                            {{ form.current_class }}
+                            <span id="current_class_error" class="text-danger">
+                              {{ form.current_class.errors }}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <label for="id_no_of_child">
+                              Number Of Child
+                            </label>
+                            {{ form.no_of_child }}
+                            <span id="no_of_child_error" class="text-danger">
+                              {{ form.no_of_child.errors }}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" onclick="saveEnquiry()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+{% block javascripts %}
+<script type="text/javascript">
+  $(document).ready(() => {
+    $("#enquirytable").DataTable({
+      searching: true,
+      paging: true,
+      bSort: true,
+      info: false,
+      dom: "Bfrtip",
+      buttons: [
+
+        {
+          extend: 'copyHtml5',
+          text: '<i class="fa fa-files-o"></i>',
+          titleAttr: 'Copy',
+          title: $('.download_label').html(),
+          exportOptions: {
+            columns: ':visible'
+          }
+        },
+
+        {
+          extend: 'excelHtml5',
+          text: '<i class="fa fa-file-excel-o"></i>',
+          titleAttr: 'Excel',
+          title: $('.download_label').html(),
+          exportOptions: {
+            columns: ':visible'
+          }
+        },
+
+        {
+          extend: 'csvHtml5',
+          text: '<i class="fa fa-file-text-o"></i>',
+          titleAttr: 'CSV',
+          title: $('.download_label').html(),
+          exportOptions: {
+            columns: ':visible'
+          }
+        },
+
+        {
+          extend: 'pdfHtml5',
+          text: '<i class="fa fa-file-pdf-o"></i>',
+          titleAttr: 'PDF',
+          title: $('.download_label').html(),
+          exportOptions: {
+            columns: ':visible'
+
+          }
+        },
+
+        {
+          extend: 'print',
+          text: '<i class="fa fa-print"></i>',
+          titleAttr: 'Print',
+          title: $('.download_label').html(),
+          customize: function (win) {
+            $(win.document.body)
+              .css('font-size', '10pt');
+
+            $(win.document.body).find('table')
+              .addClass('compact')
+              .css('font-size', 'inherit');
+          },
+          exportOptions: {
+            columns: ':visible'
+          }
+        },
+
+        {
+          extend: 'colvis',
+          text: '<i class="fa fa-columns"></i>',
+          titleAttr: 'Columns',
+          title: $('.download_label').html(),
+          postfixButtons: ['colvisRestore']
+        },
+      ]
+    });
+    //save enquiry
+    function saveEnquiry() {
+      console.log('object')
+      // $.ajax({
+      //   url: '',
+      //   type: 'POST',
+      //   dataType: 'json',
+      //   data: $("#formadd").serialize(),
+      //   success: function (data) {
+      //     console.log(data)
+      //     // if (data.status == "fail") {
+
+      //     //   var message = "";
+      //     //   $.each(data.error, function (index, value) {
+
+      //     //     message += value;
+      //     //   });
+      //     //   errorMsg(message);
+      //     // } else {
+
+      //     //   successMsg(data.message);
+      //     //   window.location.reload(true);
+      //     // }
+
+      //   },
+      //   error: function (data) {
+      //     console.log(data)
+      //   }
+      // });
+    }
+  })
+</script>
+{% endblock javascripts %}

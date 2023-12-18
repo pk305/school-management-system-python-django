@@ -1,0 +1,59 @@
+html {
+font-size: 14px;
+}
+.sidebar-dark {
+  background-color: #343a40;
+}
+.box.card {
+  position: relative;
+  background: #ffffff;
+  margin-bottom: 10px;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+}
+.box-header {
+  border: none;
+  background: #ebedef;
+  padding-left: 6px;
+  padding-bottom: 1rem;
+}
+.box-header > .fa, .box-header > .glyphicon, .box-header > .ion, .box-header .box-title {
+  display: inline-block;
+  font-size: 18px;
+  margin: 0;
+  line-height: 1;
+}
+.box-body {
+  border: 1px solid #dae4f0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 10px;
+}
+.form-box .form-group {
+  margin-bottom: 15px;
+}
+.form-group .req {
+  color: #fc2d42;
+}
+.form-control {
+  border-radius: 5px;
+}
+.form-control:focus {
+  outline: 0;
+  box-shadow: none;
+  border: 1px solid  var(--cui-input-focus-border-color, #998fed);
+}
+button:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none!important;
+}
+.tbox-actions .btn {
+  margin: 0px;
+  padding: 0px;
+}
+div.dt-buttons {
+  float: right!important;
+}

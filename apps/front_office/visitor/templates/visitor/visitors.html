@@ -1,0 +1,209 @@
+{% extends "layouts/base.html" %}
+{% block title %} Visitors {% endblock %}
+{% block stylesheets %}{% endblock stylesheets %}
+{% block content %}
+<div class="body flex-grow-1 px-3">
+  <div class="px-3">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card box">
+          <div class="card-header box-header with-border">
+            <h3 class="box-title">
+              Add Visitor
+            </h3>
+          </div>
+          <form id="form1" action="admin/visitors" method="post" accept-charset="utf-8" enctype="multipart/form-data"
+            class="form-box">
+            <div class="card-body box-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">
+                  Purpose
+                </label><small class="req"> *</small>
+                <select name="purpose" class="form-control">
+                  <option value="">Select </option>
+                  <option value=""></option>
+                </select>
+
+              </div>
+              <div class="form-group">
+                <label for="pwd">
+                  name
+                </label> <small class="req"> *</small>
+                <input type="text" class="form-control" value="name" name="name">
+
+
+              </div>
+              <div class="form-group">
+                <label for="pwd">
+                  phone
+                </label>
+                <input type="text" class="form-control" value="contact" name="contact">
+              </div>
+              <div class="form-group">
+                <label for="pwd">
+                  icard
+                </label>
+                <input type="text" class="form-control" value="id_proof" name="id_proof">
+
+              </div>
+              <div class="form-group">
+                <label for="email">
+                  number_of_person
+                </label>
+                <input type="text" class="form-control" value="pepples" name="pepples">
+              </div>
+              <div class="form-group">
+                <div class="form-group">
+                  <label for="pwd">
+                    date
+                  </label><input type="text" id="date" class="form-control date" value="date" name="date" readonly="">
+
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="pwd">
+                  in_time
+                </label>
+                <div class="bootstrap-timepicker">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="text" name="time" class="form-control timepicker" id="stime_" value="time">
+                      <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="form-group">
+                <label for="pwd">
+                  out_time
+                </label>
+                <div class="bootstrap-timepicker">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="text" name="out_time" class="form-control timepicker" id="stime_" value="out_time">
+                      <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="form-group">
+                <label for="pwd">
+                  note
+                </label>
+                <textarea class="form-control" id="description" name="note" name="note" rows="3">note</textarea>
+
+
+              </div>
+              <div class="form-group">
+                <label for="exampleInputFile">
+                  attach_document
+                </label>
+                <div><input class="form-control" type='file' name='file' />
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-info pull-right">
+                save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="card box">
+          <div class="card-header box-header ptbnull">
+            <h3 class="box-title titlefix">
+              Visitor List
+            </h3>
+            <div class="box-tools pull-right">
+            </div>
+          </div>
+          <div class="card-body box-body">
+            <!-- <div class="download_label">
+              visitor
+              list
+            </div> -->
+            <div class="mailbox-messages table-responsive">
+              <table class="table table-hover table-striped table-bordered example">
+                <thead>
+                  <tr>
+                    <th>Purpose</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Date</th>
+                    <th>In Time</th>
+                    <th>Out Time</th>
+                    <th class="text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="mailbox-name">
+                      purpose
+                    </td>
+                    <td class="mailbox-name">
+                      name
+                    </td>
+                    <td class="mailbox-name">
+                      contact
+                    </td>
+                    <td class="mailbox-name">
+                      date
+                    </td>
+                    <td class="mailbox-name">
+                      in_time
+                    </td>
+                    <td class="mailbox-name">
+                      out_time
+                    </td>
+                    <td class="mailbox-date pull-right">
+                      <!-- <a data-placement="left" class="btn btn-default btn-xs" data-target="#visitordetails"
+                        data-toggle="modal" title="view"><i class="fa fa-reorder"></i></a> -->
+
+                      <!-- <a data-placement="left"
+                        href="<?php echo base_url(); ?>admin/visitors/download/<?php echo $value['image"
+                        class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="download">
+                        <i class="fa fa-download"></i>
+                      </a>
+
+                      <?php if ($this->rbac->hasPrivilege('visitor_book', 'can_edit')) { ?>
+                      <a data-placement="left"
+                        href="<?php echo base_url(); ?>admin/visitors/edit/<?php echo $value['id"
+                        class="btn btn-default btn-xs" data-toggle="tooltip" title="edit">
+                        <i class="fa fa-pencil"></i>
+                      </a
+                     <a data-placement="left"
+                        href="<?php echo base_url(); ?>admin/visitors/imagedelete/<?php echo $value['id/<?php echo $value['image"
+                        class="btn btn-default btn-xs" data-toggle="tooltip" title="delete"
+                        onclick="return confirm('delete_confirm') ?>');" data-original-title="delete">
+                        <i class="fa fa-remove"></i>
+                      </a>
+                      <a data-placement="left"
+                        href="<?php echo base_url(); ?>admin/visitors/delete/<?php echo $value['id"
+                        class="btn btn-default btn-xs" data-toggle="tooltip" title="delete"
+                        onclick="return confirm('delete_confirm') ?>');" data-original-title="delete">
+                        <i class="fa fa-remove"></i>
+                      </a> -->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+{% block javascripts %}{% endblock javascripts %}
