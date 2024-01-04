@@ -12,92 +12,73 @@
     <li class="nav-item">
       <a class="nav-link" href="/">
         <svg class="nav-icon">
-          <use
-            xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-speedometer"
-          ></use>
+          <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
         </svg>
-        Dashboard</a
-      >
+        Dashboard</a>
     </li>
     <li class="nav-group">
       <a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
-          <use
-            xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-puzzle"
-          ></use>
+          <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
         </svg>
-        Front Office</a
-      >
+        Front Office</a>
       <ul class="nav-group-items">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'enquiry' %}"
-            ><span class="nav-icon"></span>Admission Enquiry</a
-          >
+          <a class="nav-link" href="{% url 'enquiry' %}"><span class="nav-icon"></span>Admission Enquiry</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'visitors' %}"
-            ><span class="nav-icon"></span>Visitor Book</a
-          >
+          <a class="nav-link" href="{% url 'visitors' %}"><span class="nav-icon"></span>Visitor Book</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'general-call' %}"
-            ><span class="nav-icon"></span>Phone Call Log</a
-          >
+          <a class="nav-link" href="{% url 'general-call' %}"><span class="nav-icon"></span>Phone Call Log</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'dispatch' %}"
-            ><span class="nav-icon"></span>Postal Dispatch</a
-          >
+          <a class="nav-link" href="{% url 'dispatch' %}"><span class="nav-icon"></span>Postal Dispatch</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'receive' %}"
-            ><span class="nav-icon"></span>Postal Receive</a
-          >
+          <a class="nav-link" href="{% url 'receive' %}"><span class="nav-icon"></span>Postal Receive</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'complaint' %}"
-            ><span class="nav-icon"></span>Complain</a
-          >
+          <a class="nav-link" href="{% url 'complaint' %}"><span class="nav-icon"></span>Complain</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'visitor-purpose' %}"
-            ><span class="nav-icon"></span>Setup Front Office</a
-          >
+          <a class="nav-link" href="{% url 'visitor-purpose' %}"><span class="nav-icon"></span>Setup Front Office</a>
         </li>
       </ul>
     </li>
     <li class="nav-group">
       <a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
-          <use
-            xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-user-plus"
-          ></use>
+          <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-user-plus"></use>
         </svg>
-        Student Information</a
-      >
+        Student Information</a>
       <ul class="nav-group-items">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'student_details' %}"
-            ><span class="nav-icon"></span>Student Details</a
-          >
+          <a class="nav-link" href="{% url 'student_details' %}"><span class="nav-icon"></span>Student Details</a>
         </li>
-      </ul>
-    </li>
-
-    <li class="nav-group">
-      <a class="nav-link nav-group-toggle" href="#">
-        <svg class="nav-icon">
-          <use
-            xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-money"
-          ></use>
-        </svg>
-        Fees Collection</a
-      >
-      <ul class="nav-group-items">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'collect_fees' %}"
-            ><span class="nav-icon"></span>Collect Fees</a
-          >
+          <a class="nav-link" href="{% url 'student_details' %}"><span class="nav-icon"></span>Student Admission</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'student_details' %}"><span class="nav-icon"></span>Online Admission</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'student_details' %}"><span class="nav-icon"></span>Disabled Students</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'student_details' %}"><span class="nav-icon"></span>Multi Class Student</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'student_details' %}"><span class="nav-icon"></span>Bulk Delete</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'student_details' %}"><span class="nav-icon"></span>Student Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'student_details' %}"><span class="nav-icon"></span>Student House</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'student_details' %}"><span class="nav-icon"></span>Disable Reason</a>
         </li>
       </ul>
     </li>
@@ -105,17 +86,39 @@
     <li class="nav-group">
       <a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
-          <use
-            xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-calendar"
-          ></use>
+          <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-money"></use>
         </svg>
-        Income</a
-      >
+        Fees Collection</a>
       <ul class="nav-group-items">
         <li class="nav-item">
-          <a class="nav-link" href="/student-details"
-            ><span class="nav-icon"></span>Collect Fees</a
-          >
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Collect Fees</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Offline Bank Payments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Search Fees Payment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Search Due Fee</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Fees Master</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Fees Group</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Fees Type</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Fees Discount</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Fees Carry Forward</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Fees Reminder</a>
         </li>
       </ul>
     </li>
@@ -123,17 +126,47 @@
     <li class="nav-group">
       <a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
-          <use
-            xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-credit-card"
-          ></use>
+          <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-calendar"></use>
         </svg>
-        Expenses</a
-      >
+        Income</a>
       <ul class="nav-group-items">
         <li class="nav-item">
-          <a class="nav-link" href="/student-details"
-            ><span class="nav-icon"></span>Collect Fees</a
-          >
+          <a class="nav-link" href="/student-details"><span class="nav-icon"></span>Add Income</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Search Income</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>Income Head</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>dddddddddd</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>dddddddddd</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>dddddddddd</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>dddddddddd</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'collect_fees' %}"><span class="nav-icon"></span>dddddddddd</a>
+        </li>
+
+      </ul>
+    </li>
+
+    <li class="nav-group">
+      <a class="nav-link nav-group-toggle" href="#">
+        <svg class="nav-icon">
+          <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-credit-card"></use>
+        </svg>
+        Expenses</a>
+      <ul class="nav-group-items">
+        <li class="nav-item">
+          <a class="nav-link" href="/student-details"><span class="nav-icon"></span>Collect Fees</a>
         </li>
       </ul>
     </li>
@@ -141,17 +174,12 @@
     <li class="nav-group">
       <a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
-          <use
-            xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-credit-card"
-          ></use>
+          <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-credit-card"></use>
         </svg>
-        Attendance</a
-      >
+        Attendance</a>
       <ul class="nav-group-items">
         <li class="nav-item">
-          <a class="nav-link" href="/student-details"
-            ><span class="nav-icon"></span>Collect Fees</a
-          >
+          <a class="nav-link" href="/student-details"><span class="nav-icon"></span>Collect Fees</a>
         </li>
       </ul>
     </li>
@@ -159,17 +187,12 @@
     <li class="nav-group">
       <a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
-          <use
-            xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-map"
-          ></use>
+          <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-map"></use>
         </svg>
-        Examinations</a
-      >
+        Examinations</a>
       <ul class="nav-group-items">
         <li class="nav-item">
-          <a class="nav-link" href="/student-details"
-            ><span class="nav-icon"></span>Collect Fees</a
-          >
+          <a class="nav-link" href="/student-details"><span class="nav-icon"></span>Collect Fees</a>
         </li>
       </ul>
     </li>
@@ -177,17 +200,12 @@
     <li class="nav-group">
       <a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
-          <use
-            xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-rss"
-          ></use>
+          <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-rss"></use>
         </svg>
-        Online Examinations</a
-      >
+        Online Examinations</a>
       <ul class="nav-group-items">
         <li class="nav-item">
-          <a class="nav-link" href="/student-details"
-            ><span class="nav-icon"></span>Collect Fees</a
-          >
+          <a class="nav-link" href="/student-details"><span class="nav-icon"></span>Collect Fees</a>
         </li>
       </ul>
     </li>
@@ -195,24 +213,15 @@
     <li class="nav-group">
       <a class="nav-link nav-group-toggle" href="#">
         <svg class="nav-icon">
-          <use
-            xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-settings"
-          ></use>
+          <use xlink:href="/static/assets/vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
         </svg>
-        System Settings</a
-      >
+        System Settings</a>
       <ul class="nav-group-items">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'general' %}"
-            ><span class="nav-icon"></span>General Settings</a
-          >
+          <a class="nav-link" href="{% url 'general' %}"><span class="nav-icon"></span>General Settings</a>
         </li>
       </ul>
     </li>
   </ul>
-  <button
-    class="sidebar-toggler"
-    data-coreui-toggle="unfoldable"
-    type="button"
-  ></button>
+  <button class="sidebar-toggler" data-coreui-toggle="unfoldable" type="button"></button>
 </div>
